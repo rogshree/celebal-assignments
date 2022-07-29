@@ -1,0 +1,119 @@
+<html lang="en">
+<head>
+    <style>
+        h1{
+            text-align: center;
+            font-size: large;
+        }
+        ol{
+           
+            display: table;
+            margin: 0 30px;
+        }
+        label,li{
+            font-size: larger;
+        }
+        table{
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+            height: 40%;
+            font-size: medium;
+        }
+   
+        th{
+           text-align: left;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        img{
+            position: relative;
+            left: -20px;
+            right: 20px;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="student.png">
+    <h2>Students result:-</h2>
+    <div class="hh">
+        <table border="2px">
+            <tr>
+                <th>P.no</th>
+                <th>student</th>
+                <th>marks</th>
+                <th>result</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>rakesh</td>
+                <td>78</td>
+                <td>Pass</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>tanish</td>
+                <td>56</td>
+                <td>Pass</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>parish</td>
+                <td>24</td>
+                <td>Fail</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>karim</td>
+                <td>45</td>
+                <td>Pass</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>lakesh</td>
+                <td>95</td>
+                <td>Pass</td>
+            </tr>
+        </table>
+    </div>
+    <br>
+    <br>
+    <div>
+        <h2>Passed students:-</h2>
+        <ol>
+            <li>rakesh</li>
+            <br>
+            <li>tanish</li>
+            <br>
+            <li>karim</li>
+            <br>
+            <li>lakesh</li>
+        </ol>
+    </div>
+    <div>
+        <h2>Failed students please apply for next year</h2>
+        <form>
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" name="fname"><br><br>
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lname" name="lname"><br><br>
+            <label for="lname">Year:</label><br>
+            <input type="number" id="lname" name="lname"><br><br>
+            <input type="radio" id="html" name="fav_language" value="Pass">
+            <label for="html">Pass</label><br>
+            <input type="radio" id="css" name="fav_language" value="Fail">
+            <label for="css">Fail</label><br><br>
+            <input type="submit" value="Submit">
+          </form>
+    </div>
+    <div>
+        <h2>For studies refer to this video:-</h2>
+        <iframe src="https://www.figma.com/file/fFiznBUsmvqATLWJH6dD5S/Blog?node-id=501%3A231" frameborder="0"></iframe>
+    </div>
+</body>
+</html>
