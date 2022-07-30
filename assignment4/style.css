@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(152, 201, 218);
+}
+.heading{
+    font-size: xx-large;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 3px;
+    width: 100%;
+    height: 35%;
+    display: flex;
+    align-items: flex-end;
+}
+.heading h1{
+    position: relative;
+    margin-left: 45%;
+    margin-bottom: 20px;
+    color: aliceblue;
+}
+.maintext{
+    width: 50%;
+    height: 10%;
+    margin-left: 25%;
+    display: flex;
+    justify-content: center;
+}
+.maintext input{
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 80%;
+    margin-top: 7px;
+    height: 80%;
+    border-radius: 7px;
+    border: 0;
+}
+.maintext #add{
+    margin-top: 7px;
+    height: max-content;
+    border-radius: 7px;
+    width: 10%;
+    font-size: medium;
+    letter-spacing: 0.7px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    background-color: aliceblue;
+    color:rgb(60, 156, 189) ;
+    border: 0ch;
+    margin-left: 3px;
+}
+::placeholder{
+    padding-left: 10%;
+    color: rgb(0, 0, 0, 1);
+    font-size: large;
+    opacity: 100%;
+}
+.maintext .change{
+    margin-top: 7px;
+    height: max-content;
+    border-radius: 7px;
+    width: 10%;
+    padding-top: 15px;
+    padding-bottom: 13px;
+    margin-left: 1px;
+    font-size: medium;
+    letter-spacing: 0.5px;
+    background-color: aliceblue;
+    color:rgb(60, 156, 189) ;
+    border: 0ch;
+    margin-left: 3px;
+}
+.saves{
+    border-top: 4px solid black;
+}
+.saves input{
+   background-color:rgb(152, 201, 218) ;
+    width: 70%;
+}
+input[type="text"]
+{
+    font-family:'Pacifico';
+    color: rgb(0, 0, 0, 1);
+    font-size: large;
+    opacity: 100%;
+    letter-spacing: 0.7px;
+}
