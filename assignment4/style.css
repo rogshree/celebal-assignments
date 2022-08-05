@@ -85,3 +85,6 @@ input[type="text"]
     opacity: 100%;
     letter-spacing: 0.7px;
 }
+.todo_line{
+    text-decoration: line-through;
+}

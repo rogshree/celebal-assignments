@@ -13,6 +13,7 @@
         let notes = document.createElement("input");
         notes.setAttribute('type','text');
         notes.setAttribute('id',`${counter}editnotes`);
+        notes.setAttribute('class','todo');
         record.push(counter);
         notes.setAttribute('placeholder','Text');
         let middle = takingnotes.value;
@@ -36,8 +37,13 @@
     })
     document.addEventListener('click', (e) => {
         let element = e.target;
-        if(element.innerText == "edit"){        
+        console.log(element);
+        if(element.innerText == "edit" || element.innerText == "save"){        
             let idedit = document.getElementById(`${element.id}notes`)
+            if(element.innerHTML=="edit")
+            element.innerHTML = "save";
+            else
+            element.innerHTML = "edit";
             if(idedit.readOnly == true)
             idedit.readOnly = false;
             else
@@ -47,5 +53,13 @@
         {
             let iedit = document.getElementById(`saves${element.id}`);
             iedit.remove();
+        }
+        if(element.classList.contains('todo') && element.readOnly==true)
+        {
+            let idedit = document.getElementById(`${element.id}`)
+            if(idedit.classList.contains('todo_line'))
+            idedit.classList.remove('todo_line');
+            else
+            idedit.classList.add('todo_line');
         }
     });
