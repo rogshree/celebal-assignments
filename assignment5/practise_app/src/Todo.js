@@ -1,10 +1,26 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 const Todo = () => {
+    const getlocalItems =()=>{
+        let list = localStorage.getItem('lists');
+        if(list)
+        {
+            return JSON.parse(localStorage.getItem('lists'));
+        }
+        else
+        {
+            return [];
+        }
+    }
     const [inputitem,setInputitem] = useState("")
-    const [items,setItems] = useState([])
+    const [items,setItems] = useState(getlocalItems())
     const [toggleitem, setToggleitem] = useState(true)
     const [isedit, setIsedit] = useState(null)
+    useEffect(() => {
+        localStorage.setItem('lists',JSON.stringify(items))
+    }, [items])
+
+
     function toggleTodoCompleteAtIndex(index){
         const temporaryTodos = [...items];
         temporaryTodos[index].isDone = !temporaryTodos[index].isDone;
@@ -25,8 +41,8 @@ const Todo = () => {
             })
             )
             setInputitem("")
-        setToggleitem(true)
-        setIsedit(null)
+            setToggleitem(true)
+            setIsedit(null)
         }
         else
         {
