@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.Navbar{
+    font-size: xx-large;
+}
+.card{
+    margin-left: 100px;
+    margin-top: 50px;
+    height: 500px;
+    display: flex;
+}
+img{
+    height: 400px;
+    width: 400px;
+}
+.carddata{
+    padding-left: 50px;
+}
+.pricetag{
+    padding: 20px 20px 20px 0;
+}
+.heading{
+    text-align: center;
+    color: brown;
+}
+.description{
+    padding-top: 20px;
+    width: 70%;
+}
+p{
+    line-height: 50px;
+}
+.cartprod{
+    font-size: larger;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 200;
+    line-height: 50px;
+}
+.namer{
+    padding-left: 30px;
+    padding-right: 600px;
+}
