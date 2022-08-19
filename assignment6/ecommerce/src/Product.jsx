@@ -1,10 +1,9 @@
 import React from 'react'
-// import { useEffect } from 'react'
+import { useContext } from 'react';
+import { poper } from './App'
 const Product = (props)=> {
   const data = props.productusers;
-  // useEffect(()=>{
-  //   console.log(props.cartdata)
-  // },[props.cartdata]);
+  const {cartdata,setCartdata} = useContext(poper)
   return (
     <>
     <div className='products'>
@@ -22,7 +21,7 @@ const Product = (props)=> {
                     <h3>Price: {curElem.price}$</h3>
                   </div>
                   <div>
-                    <button onClick={()=>{props.setCartdata([...props.cartdata,curElem]);
+                    <button onClick={()=>{setCartdata([...cartdata,curElem]);
                     alert("Item added to cart")}}>Add to cart</button>
                     </div>
                     <div className='description'>
