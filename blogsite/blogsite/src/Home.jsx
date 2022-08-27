@@ -9,15 +9,15 @@ function Home() {
   const [check,setCheck] = useState(false);
   const [userinfo,setUserinfo] = useState({});
   const getuserinfo = async ()=>{
-   try{
-    const res = await axios('/myblogsdata');
+    await axios.get('/myblogsdata').then((res)=>{
     setUserinfo(res.data);
     setCheck(true);
-   }catch{
+   }).catch((error)=>{
    setTimeout(()=>{
       window.alert("Sign in Please");
     },3000)
- }
+    console.log(error);
+ })
 }
 const blogsection=()=>{
   navigate('/myblogs');

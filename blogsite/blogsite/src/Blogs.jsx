@@ -5,14 +5,12 @@ import axios from 'axios';
 function Blogs() {
 const [allblogs,setAllblogs] = useState([]);
   const Getalldata = async()=>{
-    try{ const res = await axios("/theblogs")
+  await axios.get("/theblogs").then((res)=>{
      setAllblogs(res.data);
-    }catch(error)
-    {
+    }).catch((error)=>{
      console.log(error);
-         throw error;
-    }
- }
+    })
+  }
  useEffect(()=>{
   Getalldata();
  },[])

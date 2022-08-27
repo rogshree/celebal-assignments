@@ -5,20 +5,23 @@ function Allmyblogs() {
     const [mycontent,setMycontent] = useState({})
     const [hash,setHash] = useState(false);
     const allblogs = async()=>{
-        
-        try{ const res = await axios('/myblogsdata');
-         setMycontent(res.data)
-         setHash(true);
-         if(res.status===401)
+            await axios.get('/myblogsdata').then((res)=>{
+            if(res.status === 200)
+            {
+                setMycontent(res.data);
+                setHash(true);
+            }
+        }).catch((error)=>{
+            if(error.response.status===401)
          {
              console.log("not working");
          }
-        }catch(error)
-        {
-         console.log(error);
-         throw error;
-        }
-     }
+        else{
+                console.log(error);
+                
+            }
+        })
+    }
   return (
     <div method='GET'>
         <button onClick={()=>allblogs()}>Refresh</button>

@@ -33,7 +33,7 @@ router.post('/register', async (req,res)=>{
         }
         else if(password!=confirm)
         {
-            return res.status(422).json({error:"user already exist" });
+            return res.status(423).json({error:"password not matched" });
         }
         else{
         const user = new User({name, email, password, confirm});
@@ -62,7 +62,7 @@ router.post('/signin', async (req,res)=>{
     const { email, password} = req.body;
     if(!email ||!password)
     {
-        res.status(400).json({error:"Please fill the data"})
+        res.status(400).send({error:"Please fill the data"})
     }
     else{try{
 

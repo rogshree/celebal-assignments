@@ -15,22 +15,32 @@ function Signup() {
     }
     const submitdata = async(e)=>{
         e.preventDefault();
-        const {name, email, password, confirm} = user;
-        const res = await axios({
-            method: 'post',
-            url: '/register',
-            data: {
-             name,email,password,confirm
+        await axios.post('/register',user).then((res)=>{
+            if(res.status === 201)
+            {window.alert("Registration successfulll");
+            navigate('/login');}
+        }).catch((error)=>{
+            if(error.response.status === 400)
+            {
+                window.alert("Please enter details correctly");
             }
-          });
-        if(res.status===422 || !res.data){
-            window.alert("Invalid Registration");
-        }
-        else{
-            window.alert("Registration successfulll");
-            navigate('/login');
-        }
-
+            else if(error.response.status === 422)
+            {
+                window.alert("user already exist");
+            }
+            else if(error.response.status === 423)
+            {
+                window.alert("Password not matched");
+            }
+            else if(error.response.status === 500)
+            {
+                window.alert("Server error try again later");
+            }
+            else{
+                console.log(error);
+            }
+        })
+            
     }
   return (
     <>

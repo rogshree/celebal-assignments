@@ -10,29 +10,23 @@ function Login() {
     const[password,setPassword] = useState("")
     const userlogin =async (e)=>{
         e.preventDefault();
-        try{const res = await axios({
-            method: 'post',
-            url: '/signin',
-            data: {
-             email,password
-            }
-          });
-        if(res.status===400)
-        {
-            window.alert("pls fill the data correctly");
-        }
-        else if(res.status===422)
+        const data = {email,password};
+
+        await axios.post('/signin',data).then(res=>{
+            window.alert(`Welcome back`);
+            navigate('/myblogs');
+            }).catch(error=>{
+                    if(error.response.status === 400)
+            {
+                window.alert("pls fill the data correctly");
+            } 
+                    else if(error.response.status===422)
         {
             window.alert("Invalid Credentials");
         }
-        else{
-            console.log(res.data);
-            window.alert("Welcome back")
-            navigate('/myblogs');
-        }
-}catch(error){
-    console.log(error);
-}
+    else
+            {console.log(error);}
+})
     }
   return (
     <form method='POST'>

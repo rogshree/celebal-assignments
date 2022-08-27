@@ -10,38 +10,31 @@ function Myblogs() {
     const [blogtitle,setBlogtitle] = useState("");
     const [blogcontent,setBlogcontent] = useState("");
     const Getdata = async()=>{
-      try{  const res = await axios('/myblogsdata')
-        console.log(res);
-        
-          if(res.status===401)
-        {
-            setTimeout(()=>{
-                window.alert("Unauthorized");
-              },500)
-              navigate('/login');
-        }
-        else{
-        setUserdata(res.data)
-        }
-       }catch(error)
-       {
+      const element = ()=>{
         setTimeout(()=>{
           window.alert("Unauthorized");
         },500)
         navigate('/login');
+      }
+      await axios.get('/myblogsdata').then((res)=>{
+        if(res.status===401)
+        {
+            element();
+        }
+        if(res.status===200)
+        {
+        setUserdata(res.data)
+        }
+      }).catch((error)=>{
+        element();
         console.log(error);
-       }
+      })
     }
     const submitcontent = async(e)=>{
         e.preventDefault();
-        try{const res = await axios({
-            method: 'post',
-            url: '/blogsupload',
-            data: {
-             blogtitle,blogcontent
-            }
-          });
-        if(res.status===201)
+        const data = { blogtitle,blogcontent };
+        await axios.post('/blogsupload',data).then((res)=>{
+          if(res.status===201)
         {
             window.alert("Your Blog is Live now");
             setBlogtitle("");
@@ -56,10 +49,9 @@ function Myblogs() {
         else{
            navigate('/myblogs');
         }
-       }catch(error)
-       {
-        console.log(error);
-       }
+        }).catch((error)=>{
+          console.log(error);
+        })
     }
     useEffect(()=>{
         Getdata();
