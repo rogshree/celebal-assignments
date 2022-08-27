@@ -115,12 +115,9 @@ router.post('/signin', async (req,res)=>{
     }
     else{
     const userContact = await User.findOne({_id:req.userID})
-    if(userContact)
-    {
         const userBlog = await userContact.addMessage(blogtitle, blogcontent);
         await userContact.save();
-        res.status(201).json({message:"Your Blog saved successfully"});
-    }
+        res.status(200).json({message:"Your Blog saved successfully"});
 }
 }catch(error){
     console.log(error);

@@ -12,7 +12,7 @@ function Login() {
         e.preventDefault();
         const data = {email,password};
 
-        await axios.post('/signin',data).then(res=>{
+        await axios.post('http://localhost:5000/signin',data,{withCredentials:"include"}).then(res=>{
             window.alert(`Welcome back`);
             navigate('/myblogs');
             }).catch(error=>{

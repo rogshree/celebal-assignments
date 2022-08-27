@@ -15,7 +15,7 @@ function Signup() {
     }
     const submitdata = async(e)=>{
         e.preventDefault();
-        await axios.post('/register',user).then((res)=>{
+        await axios.post('http://localhost:5000/register',user,{withCredentials:"include"}).then((res)=>{
             if(res.status === 201)
             {window.alert("Registration successfulll");
             navigate('/login');}

@@ -9,7 +9,7 @@ function Home() {
   const [check,setCheck] = useState(false);
   const [userinfo,setUserinfo] = useState({});
   const getuserinfo = async ()=>{
-    await axios.get('/myblogsdata').then((res)=>{
+    await axios.get('http://localhost:5000/myblogsdata',{withCredentials:"include"}).then((res)=>{
     setUserinfo(res.data);
     setCheck(true);
    }).catch((error)=>{

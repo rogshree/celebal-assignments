@@ -5,7 +5,7 @@ function Allmyblogs() {
     const [mycontent,setMycontent] = useState({})
     const [hash,setHash] = useState(false);
     const allblogs = async()=>{
-            await axios.get('/myblogsdata').then((res)=>{
+            await axios.get('http://localhost:5000/myblogsdata',{withCredentials:"include"}).then((res)=>{
             if(res.status === 200)
             {
                 setMycontent(res.data);

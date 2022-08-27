@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 function Logout() {
     const navigate = useNavigate();
     const log_out = async ()=>{
-       await axios.get('/loggingout').then((res)=>{
+       await axios.get('http://localhost:5000/loggingout',{withCredentials:"include"}).then((res)=>{
         if(res.status===200)
         {
             navigate('/login');

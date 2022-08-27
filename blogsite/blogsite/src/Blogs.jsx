@@ -5,7 +5,7 @@ import axios from 'axios';
 function Blogs() {
 const [allblogs,setAllblogs] = useState([]);
   const Getalldata = async()=>{
-  await axios.get("/theblogs").then((res)=>{
+  await axios.get("http://localhost:5000/theblogs",{withCredentials:"include"}).then((res)=>{
      setAllblogs(res.data);
     }).catch((error)=>{
      console.log(error);

@@ -16,7 +16,7 @@ function Myblogs() {
         },500)
         navigate('/login');
       }
-      await axios.get('/myblogsdata').then((res)=>{
+      await axios.get('http://localhost:5000/myblogsdata',{withCredentials:"include"}).then((res)=>{
         if(res.status===401)
         {
             element();
@@ -33,24 +33,20 @@ function Myblogs() {
     const submitcontent = async(e)=>{
         e.preventDefault();
         const data = { blogtitle,blogcontent };
-        await axios.post('/blogsupload',data).then((res)=>{
-          if(res.status===201)
-        {
+        await axios.post('http://localhost:5000/blogsupload',data,{withCredentials:"include"}).then((res)=>{
             window.alert("Your Blog is Live now");
             setBlogtitle("");
             setBlogcontent("");
-            navigate('/myblogs');
-        }
-        else if(res.status===400)
-        {
+        }).catch((error)=>{
+          if(error.response.status === 400)
+          {
             window.alert("Error in writing blog");
             navigate('/myblogs');
-        }
-        else{
-           navigate('/myblogs');
-        }
-        }).catch((error)=>{
-          console.log(error);
+          }
+          else{
+            console.log(error);
+          }
+          
         })
     }
     useEffect(()=>{
